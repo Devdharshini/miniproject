@@ -1,0 +1,89 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static "RestaurantsyCounter/delivered.css" %}"/>
+    
+    <title>Home Page</title>
+</head>
+<body>
+    <div class="main-header">
+        <div class="header">
+            <h3>Orders & Delivery</h3>
+        </div>
+        <div class="navbar">
+            <ul>
+                <li><a class="active">Orders</a></li>
+                <li style="float:right"><a  href="{% url "delivers"%}">Delivered</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class-"main-content">
+        <div class="sub-content">
+            <div class="row1">
+                <div class="box-a col-xs-4 notification" >
+                    <!--<button id="myBtn">Table 1</button>-->
+                    <a id = "myBtn">Table 1</a>
+                    <span class = "badge">!</span>
+                </div>
+                
+                <div class="box-b col-xs-4">Table 2</div>
+                <div class="box-c col-xs-4">Table 3</div>
+            </div>
+            <div class="row2">
+                <div class="box-d col-xs-4">Table 4</div>
+                <div class="box-e col-xs-4">Table 5</div>
+                <div class="box-f col-xs-4">Table 6</div>
+            </div>
+        </div>
+    </div>
+    <div id="myModal" class="modal">
+
+        <!-- Modal content -->
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <p>
+                <div class="notifier new">
+                    <i class="bell fa fa-bell-o"></i>
+                </div>
+            </p>
+            <div class = "row">
+                <div class = "column">
+                    <table>
+                        <tr>
+                            <th>Image</th>
+                            <th>Title</th>
+                            <th>Price</th>
+                        </tr>
+                        {% for i in products %}
+                            <tr>
+                                <td><img src = "{{i.image.url}}" width = "45px" height = "45px"></td>
+                                <td>{{i.title}}</td>
+                                <td>{{i.price}}</td>
+                            </tr>
+                        {% endfor %}
+                    </table>
+                </div>
+                <div class = "column1">
+                    <table>
+                        <tr>
+                            <th>Quantity</th>
+                        </tr>
+                        {% for j in cart %}
+                            <tr>
+                                <td>{{j.quantity}}</td>
+                            </tr>
+                        {% endfor %}
+                    </table>
+                </div>
+            </div>
+            <button id = "primary">Notify</buttton>
+        </div>
+
+    </div>
+</body>
+<script src="{% static 'RestaurantsyCounter/js/HomePage.js' %}" type="text/javascript" ></script>
+</html>

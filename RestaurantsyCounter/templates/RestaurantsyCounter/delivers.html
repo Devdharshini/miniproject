@@ -1,0 +1,66 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static "RestaurantsyCounter/HomePage.css" %}"/>
+    
+    <title>Home Page</title>
+</head>
+<body>
+    <div class="main-header">
+        <div class="header">
+            <h3>Orders & Delivery</h3>
+        </div>
+        <div class="navbar">
+            <ul>
+                <li><a href="{% url "homepage"%}">Orders</a></li>
+                <li style="float:right"><a class="active">Delivered</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="main-content">
+        <div class="contents">
+            <table>
+                <tr>
+                    <th>Table No.</th>
+                </tr>
+                <tr>
+                    <td>1</td>
+                </tr>
+            </table>
+        </div>
+        <div class="contents">
+            <table>
+                <tr>
+                    <th>Image</th>
+                    <th>Title</th>
+                    <th>Price</th>
+                </tr>
+                {% for i in product %}
+                    <tr>
+                        <td><img src="{{i.image.url}}" width="45px" height="45px"></td>
+                        <td>{{i.title}}</td>
+                        <td>{{i.price}}</td>
+                    </tr>
+                {% endfor %}
+            </table>
+        </div>
+        <div class="contents">
+            <table>
+                <tr>
+                    <th>Quantity</th>
+                </tr>
+                {% for k in cart %}
+                    <tr>
+                        <td>{{k.quantity}}</td>
+                    </tr>
+                {% endfor %}
+                </tr>
+            </table>
+        </div>
+    </div>
+</body>
+</html>

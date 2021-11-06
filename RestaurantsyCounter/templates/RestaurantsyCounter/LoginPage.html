@@ -1,0 +1,31 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static "RestaurantsyCounter/LoginPage.css" %}"/>
+    
+    <title>Login Page</title>
+</head>
+<body>
+    <div class = "login-page">
+            
+        <div class = "header">
+            <header>
+                <img src="{% static "Restaurantsy/images/logo.jpeg"%}" width="50" height="50">
+                <h2>Welcome to login page</h2>
+            </header>
+        </div>
+        <form action = "" method ="POST">
+        {% csrf_token %}
+            <div class="container">
+                {{form}}
+                <button class="button"><a href = "{% url "homepage"%}">Login</a></button>
+                <input type="checkbox" checked="checked"> <b>Remember me</b>
+            </div>
+        </form>
+    </div>
+</body>
+</html>

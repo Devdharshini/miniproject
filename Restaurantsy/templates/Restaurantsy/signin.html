@@ -1,0 +1,45 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static "Restaurantsy/signinpage.css"%}"/>
+    <title>Signin</title>
+</head>
+
+<body>
+    <div class = "signinpage">
+        <div class = "header">
+            <header><h2>Sign in</h2></header>
+        </div>
+        <form action="" method="POST">
+        {% csrf_token %}
+        {% if has_error %}
+            <p>The detail is invalid - Please enter a valid one.</p>
+        {% endif %}
+            <div class = "container">
+                <!--<label><b>Username</b></label>
+                <input required type="text" placeholder="Enter Username" name="username" required>
+                    
+                <label><b>Phone Number</b></label>
+                <input required type="tel" placeholder="Enter Phone Number" name="Phno">
+
+                <label><b>Email</b></label>
+                <input required type="email" placeholder="Enter Email" name="mail">
+          
+                <label><b>Password</b></label>
+                <input required type="password" placeholder="Enter Password" name="psw" required>
+
+                <label><b>Confrom Password</b></label>
+                <input required type="password" placeholder="Enter Password" name="confrom_psw" required>-->
+                {{form}}
+                <!--<button class="button"><a href="{% url "home-page"%}">Sign in</a></button>-->
+                <button type="submit">Signin</button>
+          
+            </div>
+        </form>
+    </div>
+</body>
+</html>

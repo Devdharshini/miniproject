@@ -1,0 +1,60 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static "Restaurantsy/loginpage.css"%}"/>
+    <title>Login</title>
+    
+</head>
+<body>
+        <div class = "login-page">
+            
+            <div class = "header">
+                <header>
+                    <img src="{% static "Restaurantsy/images/logo.jpeg"%}" width="50" height="50">
+                    <h2>Welcome to login page</h2>
+                </header>
+            </div>
+        <form action="" method="POST">
+        {% csrf_token %}
+        {% if error %}
+            <div class="alert alert-danger" role="alert">
+                {{error}}
+            </div>
+        {% endif %}
+        <div class="container">
+                
+                    <!--<label><b>Username</b></label>
+                    <input type="text" placeholder="Enter Username" name="uname" required>
+                    
+                    <label><b>Phone Number</b></label>
+                    <input type="tel" placeholder="Enter Phone Number">
+          
+                    <label><b>Password</b></label>
+                    <input type="password" placeholder="Enter Password" name="psw" required>-->
+                    {{form}}
+                    <button class="button">
+                     Login 
+                    </button>
+                    <div>
+                        {% for message in messages %}
+                        <h3>{{message}}</h3>
+                        {% endfor %}
+                    </div>
+
+                    <label><b>New User?</b></label>
+                    <button class="button"><a href="{% url "signin-page"%}">Sign in</a></button>
+
+                    <input type="checkbox" checked="checked"> <b>Remember me</b>
+
+                    
+        </div>
+        </form>
+        </div>
+        
+</body>
+</html>

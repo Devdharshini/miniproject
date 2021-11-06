@@ -1,0 +1,83 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static "Restaurantsy/payment.css" %}"/>
+    
+    <title>Payment</title>
+</head>
+<body>
+<div class='container'>
+  <div class='window'>
+    <div class ='order-info'>
+      <div class="order-info-content">
+        <header>
+          <h2>Order Summary</h2>
+        </header>
+        <div class='line'></div>
+        <table class = "order-table">
+          <tbody>
+            {% for i in products %}
+              <tr>
+                <td><img src = "{{i.image.url}}" width="45px" height="45px"></td>
+                <td>
+                  <br> <span class='thin'></span>
+                  <br> {{i.title}}<br> <span class='thin small'> Rs.{{i.price}}<br><br></span>
+                </td>
+              </tr>
+            {% endfor %}
+            
+            
+          </tbody>
+        </table>
+        
+        <!--<div class='line'></div>
+        <div class='total'>
+          <span style = 'float:left;'>
+            <div class = "thin-dense">Total</div>
+          </span>
+          <span style = 'float:right;'>
+            <div class = "thin-dense">Rs.{{}}</div>
+          </span>
+        </div>-->
+      </div>
+    </div>
+    
+    <div class='credit-info'>
+          <div class='credit-info-content'>
+            <table class='half-input-table'>
+              <tr><td>Please select your card: </td><td><div class='dropdown' id='card-dropdown'><div class='dropdown-btn' id='current-card'>Visa</div>
+                <div class='dropdown-select'>
+                <ul>
+                  <li>Master Card</li>
+                  <li>American Express</li>
+                  </ul></div>
+                </div>
+               </td></tr>
+            </table>
+            <img src='https://dl.dropboxusercontent.com/s/ubamyu6mzov5c80/visa_logo%20%281%29.png' height='80' class='credit-card-image' id='credit-card-image'></img>
+            Card Number
+            <input class='input-field'></input>
+            Card Holder
+            <input class='input-field'></input>
+            <table class='half-input-table'>
+              <tr>
+                <td> Expires
+                  <input class='input-field'></input>
+                </td>
+                <td>CVC
+                  <input class='input-field'></input>
+                </td>
+              </tr>
+            </table>
+            <button class='pay-btn'>Checkout</button>
+          </div>
+    </div>
+  </div>
+</div>
+</body>
+<script src="{% static 'Restaurantsy/js/payment.js' %}" type="text/Javascript"></script>
+</html>
